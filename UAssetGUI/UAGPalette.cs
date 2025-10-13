@@ -218,6 +218,8 @@ namespace UAssetGUI
                 frm1.jsonView.BackColor = UAGPalette.BackColor;
                 frm1.jsonView.Font = new Font(frm1.jsonView.Font.FontFamily, RecommendedFontSize, frm1.jsonView.Font.Style);
 
+                frm1.treeManager?.RefreshTheme();
+
                 // ByteViewer has no support for changing the background color
                 frm1.byteView1.ForeColor = Color.Black;
                 frm1.byteView1.BackColor = Color.White;

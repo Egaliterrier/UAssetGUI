@@ -33,7 +33,7 @@ namespace UAssetGUI
         public TableHandler tableEditor;
         public ByteViewer byteView1;
         public TextBox jsonView;
-
+        public TreeManager treeManager;
         private DiscordRpcClient _discordRpc = null;
 
         public static readonly string UsmapInstructionsNotice = "If you have a .usmap file for this game, go to Utils --> Import Mappings... and select your .usmap file to import.";
@@ -618,7 +618,17 @@ namespace UAssetGUI
                 SetUnsavedChanges(false);
 
                 tableEditor = new TableHandler(dataGridView1, targetAsset, treeView1, jsonView);
-
+                if (treeManager == null || treeManager.IsDisposed) 
+                {
+                    treeManager = new TreeManager();
+                    treeManager.asset = targetAsset;
+                    treeManager.Show();
+                }
+                else
+                {
+                    treeManager.asset = targetAsset;
+                    treeManager.RefreshTrees();
+                }
                 saveToolStripMenuItem.Enabled = !IsReadOnly();
                 saveAsToolStripMenuItem.Enabled = true;
                 findToolStripMenuItem.Enabled = true;

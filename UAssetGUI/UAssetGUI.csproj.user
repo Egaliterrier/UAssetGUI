@@ -14,6 +14,9 @@
     <Compile Update="ProgressBarForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="TreeManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="SettingsForm.resx">
