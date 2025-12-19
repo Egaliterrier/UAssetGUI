@@ -1,4 +1,4 @@
-name: CI
+name: build-release-draft
 on:
   workflow_dispatch:
   
@@ -65,6 +65,7 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         draft: true
-        tag_name: experimental-latest
+        tag_name: experimental
         name: v${{ steps.get_version.outputs.version }}-experimental-${{ steps.vars.outputs.sha_short }}
         files: ./build/*.exe
+
